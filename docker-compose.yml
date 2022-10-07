@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: "teacher"
+      POSTGRES_USER: "teacher"
+      POSTGRES_PASSWORD: "teacher"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - docker/db/scripts:/docker-entrypoint-initdb.d
+      - dz:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
